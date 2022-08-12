@@ -1,0 +1,9 @@
+-
+  url: http://www.baidu.com
+  input:
+    name: id
+    value: kw
+    text: python
+  click:
+    name: id
+    value: su

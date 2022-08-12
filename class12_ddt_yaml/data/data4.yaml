@@ -1,0 +1,9 @@
+#锚点。相当于生成一个defaults变量，变量的名称是基于&来定义
+defaults: &defaults
+  user: xuzhu
+  age: 18
+
+# << 便是合并到当前数据，*表示引用，引用通过锚点定义的变量
+shopinfo:
+  url: shopxo.com
+  <<: *defaults
