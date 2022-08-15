@@ -3,27 +3,45 @@
     钓鱼呢threading模块来实现线程的建立
 """
 import threading
-from time import sleep
+import time
+
+from selenium import webdriver
+
+exitFlag = 0
 
 
-# def func_01():
-#     for k in range(5):
-#         print('01')
-#         sleep(1)
-#
-#
-# def func_02():
-#     for j in range(5):
-#         print('02')
-#         sleep(1)
-#
-#
-# # 引入多线程机制
-# t1 = threading.Thread(target=func_01())
-# t2 = threading.Thread(target=func_02())
-# t1.start()
-# t2.start()
-#
-# for i in range(5):
-#     print('非线程：{}'.format(i))
-#     sleep(1)
+class myThread(threading.Thread):  # 继承父类threading.Thread
+    def __init__(self, threadID, name, counter):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.name = name
+        self.counter = counter
+
+    def run(self):  # 把要执行的代码写到run函数里面 线程在创建后会直接运行run函数
+        print("Starting " + self.name)
+        ed = webdriver.Edge()
+        ed.get('http://www.baidu.com')
+        time.sleep(5)
+        print_time(self.name, self.counter, 5)
+        print("Exiting " + self.name)
+
+
+def print_time(threadName, delay, counter):
+    while counter:
+        if exitFlag:
+            (threading.Thread).exit()
+        time.sleep(delay)
+        print("%s: %s" % (threadName, time.ctime(time.time())))
+        counter -= 1
+
+
+# 创建新线程
+thread1 = myThread(1, "Thread-1", 1)
+thread2 = myThread(2, "Thread-2", 2)
+
+# 开启线程
+thread1.start()
+thread2.start()
+
+
+print("Exiting Main Thread")
