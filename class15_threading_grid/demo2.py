@@ -18,10 +18,9 @@ dri2 = webdriver.Edge()
 dri3 = webdriver.Edge()
 
 # 引入threading模块
-th.append(threading.Thread(target=open_123, args=[dri1]))
-th.append(threading.Thread(target=open_123, args=[dri2]))
+th.append(threading.Thread(target=open_123, kwargs={'driver': dri1}))
+th.append(threading.Thread(target=open_123, args=(dri2,)))
 th.append(threading.Thread(target=open_123, args=[dri3]))
-print(open_123(dri1).__name__)
 
 # 所有的线程都需要被手动调用执行
 for t in th:

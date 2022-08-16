@@ -40,10 +40,10 @@ printStr(100, **printDic)
 # 等同于
 printStr(100, name="tyson", age="99")
 
-
 printDic1 = {'key1': {'first': 'value2', 'key3': 'value3'}}
 # print(**printDic1['key1'])
 printStr(**printDic1['key1'])
+
 
 # *和**放到参数里面就是解包
 def locator(a, b):
@@ -53,3 +53,12 @@ def locator(a, b):
 # *和**放到参数里面就是解包
 xxx = (1, 2)
 locator(*xxx)
+
+a = [1, 2, 3, 4, 5]
+
+
+def mini(a, b, c, d, e):
+    print(a, b, c, d, e)
+
+
+mini(*a)
