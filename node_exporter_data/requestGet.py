@@ -1,7 +1,13 @@
 import decimal
+import time
 import unittest
+from datetime import datetime
+from time import sleep
+
 import requests
 from decimal import *
+
+from node_exporter_data.util import getBaseInfo
 
 
 class requestDemo(unittest.TestCase):
@@ -18,13 +24,29 @@ class requestDemo(unittest.TestCase):
     def setUp(self) -> None:
         pass
 
-    def test_01_cpu(self):
+    def test_01(self, _s=5, _c=3):
+        m = 0
+        while m < _c:
+            m += 1
+            a = time.time()
+            s1 = self.test_cpu()
+            b = time.time()
+            sleep(_c-(b-a))
+
+
+    def test_cpu(self):
         # 访问node_exporter，获取瞬时数据
         r = requests.get('http://101.43.160.228:9100/metrics')
+        # # 获取数据转换为字典
+        # t = getBaseInfo.getBaseInfo(r.text)
+        # # 获取cpu等信息
+        # s = getBaseInfo.getBaseFinalInfo(t, netCard=None)
         # 获取返回值
         r_text = r.text
         # 按行组装数列
         r_text_list = r_text.splitlines()
+        # 定义空数据字典
+        data = dict()
         # cpu空闲值
         cpu_idl = 0
         # cpu总值
@@ -47,6 +69,8 @@ class requestDemo(unittest.TestCase):
             # 剔除#开头为注释的行
             if '#' == i[0]:
                 continue
+            data[i[0]] = i[1]
+
             # 每一行根据空格装入新数列
             j = i.split(' ')
             # 获取cpu相关信息，开头以node_cpu_seconds_total
@@ -77,8 +101,6 @@ class requestDemo(unittest.TestCase):
                 if j[0].__contains__('eth0'):
                     net_all += decimal.Decimal(j[1]) * 8
 
-        print(cpu_idl)
-        print(cpu_all)
         # 精确计算小数位4位
         getcontext().prec = 4
         # 计算cpu空闲率
@@ -92,11 +114,11 @@ class requestDemo(unittest.TestCase):
         mem_unuse = 1 - mem_use
         mem_info = mem_unuse * 100
 
+        disk_info = (disk_idl + disk_all) / 1024 / 1024
+        net_info = (net_idl + net_all) / 1024 / 1024 / 1024
+
         print('cpu_info:', cpu_info)
         print('mem_info:', mem_info)
-        print(disk_idl)
-        print(disk_all)
-        print(net_idl)
-        print(net_all)
-        print((disk_idl + disk_all) / 1024 / 1024)
-        print((net_idl + net_all) / 1024 / 1024 / 1024)
+        print('disk_info:', disk_info)
+        print('net_info:', net_info)
+        return [cpu_info, mem_info, disk_info, net_info]
