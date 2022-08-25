@@ -33,13 +33,13 @@ class requestDemo(unittest.TestCase):
         mem_idl = 0
         # mem总量
         men_all = 0
-        # disk空闲值
+        # disk下载
         disk_idl = 0
-        # disk总量
+        # disk上传
         disk_all = 0
-        # net空闲值
+        # net下载
         net_idl = 0
-        # net总量
+        # net上传
         net_all = 0
 
         # 循环返回数列，获取有用数据
@@ -65,21 +65,17 @@ class requestDemo(unittest.TestCase):
             # 磁盘读取：node_disk_read_bytes_total
             elif j[0].__contains__('node_disk_reads_completed_total'):
                 disk_idl += decimal.Decimal(j[1])
-                # print(disk_idl)
             # 磁盘写入：node_disk_written_bytes_total
             elif j[0].__contains__('node_disk_writes_completed_total'):
                 disk_all += decimal.Decimal(j[1])
-                # print(disk_all)
             # 下载宽带：node_network_receive_bytes_total
             elif j[0].__contains__('node_network_receive_bytes_total'):
                 if j[0].__contains__('eth0'):
                     net_idl += decimal.Decimal(j[1]) * 8
-                # print(net_idl)
             # 上行宽带：node_network_transmit_bytes_total
             elif j[0].__contains__('node_network_transmit_bytes_total'):
                 if j[0].__contains__('eth0'):
                     net_all += decimal.Decimal(j[1]) * 8
-                # print(net_all)
 
         print(cpu_idl)
         print(cpu_all)
