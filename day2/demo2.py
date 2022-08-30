@@ -6,8 +6,7 @@ def print_str(first, *second):
     print(second)
 
 
-if __name__ == "__main__":
-    print_str(*numbers_strings)  # 注意这里的*numbers_strings
+print_str(*numbers_strings)  # 注意这里的*numbers_strings
 
 # second有无*有区别
 numbers_strings = ("1", "2")
@@ -18,8 +17,7 @@ def print_str(first, second):
     print(second)
 
 
-if __name__ == "__main__":
-    print_str(*numbers_strings)
+print_str(*numbers_strings)
 
 
 def printStr(**anything):
