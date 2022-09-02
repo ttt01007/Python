@@ -57,7 +57,7 @@ print('{1}{0}'.format(123, 456))
 # f-string format格式的改良版
 name = 1
 age = 2
-print(f'{name}{age}')
+print(fr'{name}{age}')
 # 分隔符 split 连接符 join
 # split() 默认根据\n \t 进行分割
 print(str1.split())
