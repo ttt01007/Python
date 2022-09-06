@@ -30,3 +30,16 @@ def print_str_4(first, *args, **kwargs):
 
 
 print_str_4(1, 2, 3, name='jianyu', age=18)
+
+
+def print_str_5(first, *args, **kwargs):
+    print(first)
+    print(args)
+    print(kwargs)
+
+
+args = (2, 3)
+kwargs = {'name': 'jianyu', 'age': 18}
+print_str_5(1, args=args, kwargs=kwargs)
+print("-"*10)
+print_str_5(1, *args, **kwargs)
