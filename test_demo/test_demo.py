@@ -1,3 +1,4 @@
+import pytest
 if __name__ == '__main__':
     a = ['1123123', 2, [1, 2], (1,)]
     for i in a:

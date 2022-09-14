@@ -1,42 +1,47 @@
 import decimal
+import threading
 import time
 import unittest
 from datetime import datetime
 from time import sleep
+from unittest import skip
 
 import requests
 from decimal import *
 
+from ddt import ddt, file_data
+
 from node_exporter_data.util import getBaseInfo
 
 
+@ddt
 class requestDemo(unittest.TestCase):
 
-    @classmethod
-    def setUpClass(cls) -> None:
-        pass
+    @file_data('./test_data.yaml')
+    def test_01(self, **kwargs):
+        th = []
 
-    @classmethod
-    def tearDownClass(cls) -> None:
-        pass
+        # 引入threading模块
+        th.append(threading.Thread(target=requestDemo.test_02, kwargs={'ip': '101.43.160.228', 's': 2, 'c': 2}))
 
-    @classmethod
-    def setUp(self) -> None:
-        pass
+        # 所有的线程都需要被手动调用执行
+        for t in th:
+            t.start()
 
-    def test_01(self, _s=5, _c=3):
+    @skip
+    def test_02(self, ip='101.43.160.228', s=1, c=1):
         m = 0
-        while m < _c:
+        while m < c:
             m += 1
             a = time.time()
-            s1 = self.test_cpu()
+            s1 = self.test_03(ip=ip)
             b = time.time()
-            sleep(_c-(b-a))
+            sleep(s - (b - a))
 
-
-    def test_cpu(self):
+    @skip
+    def test_03(self, ip):
         # 访问node_exporter，获取瞬时数据
-        r = requests.get('http://101.43.160.228:9100/metrics')
+        r = requests.get(('http://') + ip + (':9100/metrics'))
         # # 获取数据转换为字典
         # t = getBaseInfo.getBaseInfo(r.text)
         # # 获取cpu等信息
@@ -122,3 +127,7 @@ class requestDemo(unittest.TestCase):
         print('disk_info:', disk_info)
         print('net_info:', net_info)
         return [cpu_info, mem_info, disk_info, net_info]
+
+
+if __name__ == '__main__':
+    unittest.main
