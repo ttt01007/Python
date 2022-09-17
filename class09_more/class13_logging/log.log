@@ -1,0 +1,10 @@
+2022-09-16 13:59:46 - DEBUG - This is a debug log.
+2022-09-16 13:59:46 - INFO - This is a info log.
+2022-09-16 13:59:46 - WARNING - This is a warning log.
+2022-09-16 13:59:46 - ERROR - This is a error log.
+2022-09-16 13:59:46 - CRITICAL - This is a critical log.
+2022-09-16 13:59:46 - WARNING - Some one delete the log file.
+NoneType: None
+Stack (most recent call last):
+  File "D:/workspace4python/Python/class09_more/class13_logging/demo01_logging.py", line 16, in <module>
+    logging.warning("Some one delete the log file.", exc_info=True, stack_info=True, extra={'user': 'Tom', 'ip':'47.98.53.222'})

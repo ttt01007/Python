@@ -1,0 +1,4 @@
+2022-09-16 16:23:14,846 - ERROR - demo02_logger.py[:22] - error message
+2022-09-16 16:23:14,846 - CRITICAL - demo02_logger.py[:23] - critical message
+2022-09-16 16:57:34,959 - ERROR - demo02_logger.py[:22] - error message
+2022-09-16 16:57:34,959 - CRITICAL - demo02_logger.py[:23] - critical message
