@@ -7,7 +7,7 @@
 # 6.N个文件，包含各种格式，只读取测试用例的格式文件
 import openpyxl
 
-from excel.excel_driver.web_keys import WebKeys
+from python_test.excel.excel_driver.web_keys import WebKeys
 
 excel = openpyxl.load_workbook('../excel_data/data.xlsx')
 sheets = excel.sheetnames

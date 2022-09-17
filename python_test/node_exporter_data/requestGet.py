@@ -2,7 +2,6 @@ import decimal
 import threading
 import time
 import unittest
-from datetime import datetime
 from time import sleep
 from unittest import skip
 
@@ -10,8 +9,6 @@ import requests
 from decimal import *
 
 from ddt import ddt, file_data
-
-from node_exporter_data.util import getBaseInfo
 
 
 @ddt

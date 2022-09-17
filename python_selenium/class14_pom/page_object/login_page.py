@@ -1,6 +1,6 @@
 from selenium import webdriver
 
-from class14_pom.base_page.base_page import WebKeys
+from python_selenium.class14_pom.base_page.base_page import WebKeys
 
 
 class LoginPage(WebKeys):

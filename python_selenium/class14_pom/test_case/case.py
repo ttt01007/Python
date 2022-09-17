@@ -2,7 +2,7 @@ import unittest
 
 from selenium import webdriver
 
-from class14_pom.page_object.login_page import LoginPage
+from python_selenium.class14_pom.page_object.login_page import LoginPage
 
 
 class Case(unittest.TestCase):

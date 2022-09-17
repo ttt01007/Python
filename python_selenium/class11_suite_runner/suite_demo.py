@@ -1,8 +1,6 @@
 # 套件
 import unittest
 
-from class11_suite_runner.unit_demo import UnitDemo
-
 # 创建套件
 suite = unittest.TestSuite()
 # 添加测试用例
@@ -15,7 +13,7 @@ suite = unittest.TestSuite()
 # suite.addTests(unittest.TestLoader().loadTestsFromName('unit_demo.UnitDemo'))
 
 # 添加路径下所有测试用例,组成套件
-case_dir = './'
+case_dir = '/'
 discover = unittest.defaultTestLoader.discover(start_dir=case_dir, pattern='u*.py')
 
 # 运行器,verbosity是日志等级0-1-2

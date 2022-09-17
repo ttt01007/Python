@@ -1,12 +1,12 @@
 # 装饰器
 import unittest
-from ddt import ddt, data, unpack, file_data
-from excel.excel_driver.web_keys import WebKeys
+from ddt import ddt, file_data
+from python_test.excel.excel_driver.web_keys import WebKeys
 
 
 def read_file():
     li = []
-    file = open('./data/1.txt', 'r', encoding='utf-8')
+    file = open('data/1.txt', 'r', encoding='utf-8')
     for line in file.readlines():
         li.append(line)
     file.close()
