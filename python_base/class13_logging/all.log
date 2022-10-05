@@ -18,3 +18,8 @@
 2022-09-27 17:17:58,095 - WARNING - warning message
 2022-09-27 17:17:58,095 - ERROR - error message
 2022-09-27 17:17:58,095 - CRITICAL - critical message
+2022-10-05 13:56:11,309 - DEBUG - debug message
+2022-10-05 13:56:11,310 - INFO - info message
+2022-10-05 13:56:11,310 - WARNING - warning message
+2022-10-05 13:56:11,311 - ERROR - error message
+2022-10-05 13:56:11,312 - CRITICAL - critical message

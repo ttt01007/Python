@@ -4,14 +4,14 @@
 import logging
 import logging.config
 
-# logging.config.fileConfig('log.ini')
+logging.config.fileConfig('log.ini', encoding='utf-8')
 # log = logging.getLogger()
 # print(type(log), log)
 
-LOG_FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
-logging.basicConfig(filename='log.log', filemode='w+', format=LOG_FORMAT,
-                    level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S',
-                    )
+# LOG_FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
+# logging.basicConfig(filename='log.log', filemode='w+', format=LOG_FORMAT,
+#                     level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S',
+#                     )
 logging.debug("This is a debug log.")
 logging.info("This is a info log.")
 logging.warning("This is a warning log.")

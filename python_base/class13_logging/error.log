@@ -10,3 +10,5 @@
 2022-09-27 17:15:32,112 - CRITICAL - demo02_logger.py[:29] - critical message
 2022-09-27 17:17:58,095 - ERROR - demo02_logger.py[:29] - error message
 2022-09-27 17:17:58,095 - CRITICAL - demo02_logger.py[:30] - critical message
+2022-10-05 13:56:11,311 - ERROR - demo02_logger.py[:29] - error message
+2022-10-05 13:56:11,312 - CRITICAL - demo02_logger.py[:30] - critical message

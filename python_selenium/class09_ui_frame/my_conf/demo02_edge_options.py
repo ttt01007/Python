@@ -14,7 +14,7 @@ class Options:
         # 指定位置打开浏览器
         # options.add_argument('windows-position:100,100')
         # 去掉警告条
-        options.add_experimental_option('excludeSwitches', ['enable-automation'])
+        # options.add_experimental_option('excludeSwitches', ['enable-automation'])
         # 加载本地缓存，把本地缓存复制一份，准们使用
         # options.add_argument(r'--user-data-dir=C:\Users\39884\AppData\Local\Microsoft\Edge\UserD')
         # 无UI模式，无头模式
