@@ -3,6 +3,7 @@ import unittest
 
 
 class UnitDemo(unittest.TestCase):
+    flag = 0
     # 无条件跳过
     @unittest.skip('无条件跳过')
     def test_01(self):
@@ -17,11 +18,11 @@ class UnitDemo(unittest.TestCase):
         print('03')
 
     # 报错了就跳过
-    # @unittest.expectedFailure
-    # def test_04(self):
-    #     print('04')
-    #     a = (1, 2)
-    #     a[0] = 2
+    @unittest.expectedFailure
+    def test_04(self):
+        print('04')
+        a = (1, 2)
+        a[0] = 2
 
     def test_05(self):
         print('05')
