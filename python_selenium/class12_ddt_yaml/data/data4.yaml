@@ -3,7 +3,7 @@ defaults: &defaults
   user: xuzhu
   age: 18
 
-# << 便是合并到当前数据，*表示引用，引用通过锚点定义的变量
+# << 表示合并到当前数据，*表示引用，引用通过锚点定义的变量
 shopinfo:
   url: shopxo.com
   <<: *defaults
