@@ -1,9 +1,12 @@
+'''
+    登录页
+'''
 from selenium import webdriver
 
-from python_selenium.class14_pom.base_page.base_page import WebKeys
+from python_selenium.class14_pom.base_page.base_page import BasePage
 
 
-class LoginPage(WebKeys):
+class LoginPage(BasePage):
     url = 'http://www.baidu.com'
 
     textfind = ('id', 'kw')

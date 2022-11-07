@@ -1,6 +1,6 @@
 """
     python的多线程实现
-    钓鱼呢threading模块来实现线程的建立
+    threading模块来实现线程的建立
 """
 import threading
 import time
@@ -19,8 +19,8 @@ class myThread(threading.Thread):  # 继承父类threading.Thread
 
     def run(self):  # 把要执行的代码写到run函数里面 线程在创建后会直接运行run函数
         print("Starting " + self.name)
-        ed = webdriver.Edge()
-        ed.get('http://www.baidu.com')
+        # ed = webdriver.Edge()
+        # ed.get('http://www.baidu.com')
         time.sleep(5)
         print_time(self.name, self.counter, 5)
         print("Exiting " + self.name)
@@ -42,6 +42,5 @@ thread2 = myThread(2, "Thread-2", 2)
 # 开启线程
 thread1.start()
 thread2.start()
-
 
 print("Exiting Main Thread")
