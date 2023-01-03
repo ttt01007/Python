@@ -8,3 +8,5 @@ if __name__ == '__main__':
     c = {'1', '2'}
     for i in c:
         print(i)
+
+    d = 0
