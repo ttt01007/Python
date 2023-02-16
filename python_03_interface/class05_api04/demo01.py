@@ -2,7 +2,7 @@ import configparser
 import os
 import unittest
 
-from Python.python_interface.class03_api_03.demo01 import HttpClient
+from Python.python_03_interface.class03_api_03.demo01 import HttpClient
 
 
 class TestAPIDemo(unittest.TestCase):

@@ -1,10 +1,13 @@
 from time import sleep
 
-# 使用在conftest中初始化好了的driver
+# 浣跨敤鍦╟onftest涓垵濮嬪寲濂戒簡鐨刣river
 import pytest
 
 
 def test_baidu_case01(browser):
+    '''
+    娉ㄩ噴111111
+    '''
     driver = browser
     driver.get('http://www.baidu.com')
     sleep(1)
@@ -12,4 +15,4 @@ def test_baidu_case01(browser):
     sleep(1)
     driver.find_element('id', 'su').click()
     sleep(1)
-    assert driver.title == '11ggb_百度搜索'
+    assert driver.title == '11ggb_鐧惧害鎼滅储'

@@ -11,6 +11,7 @@ def test_01():
         预期结果:xxxx
     '''
     print('我是tsw')
+    assert 1==2
 
 
 if __name__ == '__main__':
