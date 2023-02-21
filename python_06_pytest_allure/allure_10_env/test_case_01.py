@@ -1,21 +1,9 @@
+# allure报告默认没有环境信息
+# 添加环境信息方式一：result目录下添加environment.properties 添加到allure的报告数据目录，result下
+# 不支持中文
 import os
 import pytest
 import allure
-
-# 接口测试用例描述例子
-'''
-allure.dynamic.feature
-allure.dynamic.link
-allure.dynamic.issue
-allure.dynamic.testcase
-allure.dynamic.story
-allure.dynamic.title
-allure.dynamic.description
-
-这些都能动态修改
-参数中使用{parameter} 可以动态输出参数
-'''
-
 data = [
     ("name1", "123456", "name1 登录成功"),
     ("name2", "123456", "name2 登录失败"),
@@ -42,6 +30,6 @@ def test_2(username, pwd, title):
 
 
 if __name__ == '__main__':
-    pytest.main(['test_case_01.py', '--alluredir', './result', '--clean-alluredir'])
+    pytest.main(['test_case_01.py', '--alluredir', './result'])
     # 自动生成本地可以访问的服务,不会生成报告文件
     os.system('allure serve result')
