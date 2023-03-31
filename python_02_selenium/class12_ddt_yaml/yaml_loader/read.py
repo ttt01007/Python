@@ -3,6 +3,6 @@
 import yaml
 
 if __name__ == '__main__':
-    file = open('../data/data2.yaml', 'r', encoding='utf-8')
+    file = open('../data/data6.yaml', 'r', encoding='utf-8')
     data = yaml.load(stream=file, Loader=yaml.FullLoader)
     print(data)
